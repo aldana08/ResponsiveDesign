@@ -5,11 +5,16 @@
     <title>Leonidas Esteban</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
-    <link rel="stylesheet" href="css/media.css" media="screen and (max-width:768px)"/>
+    <!--<link rel="stylesheet" href="css/media.css" media="screen and (max-width:768px)"/>-->
     <link rel="stylesheet" href="css/estilos.css">
+    <style>
+      @media screen and (max-width: 768px) {  
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <i class="icon-menu burguer-button" id="burguer-menu"></i>
     <header class="header">
       <div class="container">
         <figure class="logo">
@@ -30,14 +35,14 @@
         </nav>
       </div>
     </header>
-    <section class="hero">
+   <section class="hero">
       <div class="container">
         <h1>
           Hola! Soy <strong>Leonidas Esteban</strong> <br/> Desarrollador  <strong>Javascript</strong> con <br> pasión por la <strong>enseñanza</strong>
         </h1>
         <img class="hero-image" src="images/hero.jpg" width="500" height="300" alt="imagen principal del sitio"> 
       </div>
-    </section>
+    </section> 
     <section id="portafolio" class="portfolio">
       <div class="container">
         <h2>Portafolio (Proyectos Destacados)</h2>
@@ -72,10 +77,10 @@
       </div>
       
     </section>
-    <div class="container">
+     <div class="container">
       <h2 class="event-list-title">Más sobre mi experiencia</h2>
-    </div>
-    <section id="eventos" class="event-list">
+    </div> 
+     <section id="eventos" class="event-list">
       <div class="container">
         <article class="event">
           <figure class="event-imageContainer">
@@ -89,7 +94,10 @@
         </article>
         <article class="event">
           <figure class="event-imageContainer">
-            <img class="event-image" src="images/platzi-conf.jpg" width="500" />
+            <div class="flexible-video">
+              <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/LoKvxCSZw5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          <!--<img class="event-image" src="images/platzi-conf.jpg" width="500" />-->  
           </figure>
           <div class="event-detail">
             <h3 class="event-title">PlatziConf México 2018</h3>
@@ -99,7 +107,9 @@
         </article>
         <article class="event">
           <figure class="event-imageContainer">
-            <img class="event-image" src="images/platzi-conf.jpg" width="500" />
+            <video class="html-video" src="videos/f8.mp4" width="1280" height="720" controls>
+            </video>
+            <!--<img class="event-image" src="images/platzi-conf.jpg" width="500" />-->
           </figure>
           <div class="event-detail">
             <h3 class="event-title">PlatziConf México 2018</h3>
@@ -118,8 +128,8 @@
           </div>
         </article>
       </div>
-    </section>
-    <section id="contacto" class="contact">
+    </section> 
+     <section id="contacto" class="contact">
       <div class="container">
         <form action="/suscripcion/" class="form-email">
           <h3>¿Creamos algo juntos?</h3>
@@ -133,18 +143,43 @@
           <a href="https://instagram.com/leonidasesteban" class="social-link instagram"></a>
         </div>
       </div>
-    </section>
-    <footer class="footer">
+    </section> 
+   <footer class="footer">
       <div class="container">
         <div>
           <p>Curso de Desarrollo web online 2018 <img src="images/platzi.png" width="80" alt="platzi"></p>
         </div>
         <div>
           <p>
-            Designed with <\3 by <a href="https://twitter.com/thespianartist">@thespianartist</a>
+            Designed with <3 by <a href="https://twitter.com/thespianartist">@thespianartist</a>
           </p>
         </div>
       </div>
     </footer>
+    <script>
+      const ipad = window.matchMedia('screen and (max-width: 767px)');
+      const menu = document.querySelector('.menu');
+      const burguerButton = document.querySelector('#burguer-menu');
+      
+      burguerButton.addEventListener('click', hideShow);
+
+      ipad.addListener(validation)
+
+      function validation(event){
+        if(event.matches){
+          burguerButton.addEventListener('click', hideShow)
+        }else{
+          burguerButton.removeEventListener('click', hideShow)
+        }
+      }
+
+      function hideShow(){
+        if(menu.classList.contains('is-active')){
+        menu.classList.remove('is-active');
+        }else{
+          menu.classList.add('is-active');
+        }
+      }
+    </script>  
   </body>
 </html>
